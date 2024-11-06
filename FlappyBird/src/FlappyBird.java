@@ -5,6 +5,7 @@ import java.util.Objects;
 import java.util.Random;
 import javax.swing.*;
 
+
 public class FlappyBird extends JPanel implements ActionListener, KeyListener {
     int boardWidth = 360;
     int boardHeight = 640;
@@ -21,36 +22,12 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener {
     int birdWidth = 34;
     int birdHeight = 24;
 
-    class Bird {
-        int x = birdX;
-        int y = birdY;
-        int width = birdWidth;
-        int height = birdHeight;
-        Image img;
-
-        Bird(Image img) {
-            this.img = img;
-        }
-    }
-
     //pipe class
     int pipeX = boardWidth;
     int pipeY = 0;
     int pipeWidth = 64;  //scaled by 1/6
     int pipeHeight = 512;
 
-    class Pipe {
-        int x = pipeX;
-        int y = pipeY;
-        int width = pipeWidth;
-        int height = pipeHeight;
-        Image img;
-        boolean passed = false;
-
-        Pipe(Image img) {
-            this.img = img;
-        }
-    }
 
     //game logic
     Bird bird;
@@ -73,23 +50,18 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener {
         addKeyListener(this);
 
         //load images
-        backgroundImg = new ImageIcon(Objects.requireNonNull(getClass().getResource("/img/flappybirdbg.png"))).getImage();
+        backgroundImg = new ImageIcon(Objects.requireNonNull(getClass().getResource("" +
+                "/img/flappybirdbg.png"))).getImage();
         birdImg = new ImageIcon(Objects.requireNonNull(getClass().getResource("/img/flappybird.png"))).getImage();
         topPipeImg = new ImageIcon(Objects.requireNonNull(getClass().getResource("/img/toppipe.png"))).getImage();
         bottomPipeImg = new ImageIcon(Objects.requireNonNull(getClass().getResource("/img/bottompipe.png"))).getImage();
 
         //bird
-        bird = new Bird(birdImg);
+        bird = new Bird(birdX,birdY,birdWidth,birdHeight,birdImg);
         pipes = new ArrayList<Pipe>();
 
         //place pipes timer
-        placePipeTimer = new Timer(1500, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Code to be executed
-                placePipes();
-            }
-        });
+        placePipeTimer = new Timer(1500, e -> placePipes());
         placePipeTimer.start();
 
         //game timer
@@ -104,12 +76,10 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener {
         int randomPipeY = (int) (pipeY - pipeHeight/4 - Math.random()*(pipeHeight/2));
         int openingSpace = boardHeight/4;
 
-        Pipe topPipe = new Pipe(topPipeImg);
-        topPipe.y = randomPipeY;
+        Pipe topPipe = new Pipe(pipeX,randomPipeY,pipeWidth,pipeHeight,topPipeImg);
         pipes.add(topPipe);
 
-        Pipe bottomPipe = new Pipe(bottomPipeImg);
-        bottomPipe.y = topPipe.y  + pipeHeight + openingSpace;
+        Pipe bottomPipe = new Pipe(pipeX,topPipe.y+pipeHeight+openingSpace,pipeWidth,pipeHeight,bottomPipeImg);
         pipes.add(bottomPipe);
     }
 
