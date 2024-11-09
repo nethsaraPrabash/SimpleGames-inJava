@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Tertis.iml" filepath="$PROJECT_DIR$/.idea/Tertis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Tertis.iml" filepath="$PROJECT_DIR$/Tertis.iml" />
     </modules>
   </component>
 </project>
