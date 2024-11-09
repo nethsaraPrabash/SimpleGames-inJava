@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="be3312d0-4da0-46b1-bf55-89c40174b7e1" name="Changes" comment="" />
+    <list default="true" id="0c846451-2361-43f7-811a-d3445f8048d1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Tertis.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tertis/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tertis/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tertis/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tertis/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tertis/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tertis/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tertis/untitled.iml" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-  </component>
   <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
   "associatedIndex": 5
 }]]></component>
-  <component name="ProjectId" id="2ob7NbY4keqHIC2Cm86Geqn4RsT" />
+  <component name="ProjectId" id="2ob8BNpCz60C5kdYVOQP5xsONdh" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -21,13 +32,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "E:/GameDev/MyFlappyBird/Tertis",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -42,12 +48,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="be3312d0-4da0-46b1-bf55-89c40174b7e1" name="Changes" comment="" />
-      <created>1731126382389</created>
+      <changelist id="0c846451-2361-43f7-811a-d3445f8048d1" name="Changes" comment="" />
+      <created>1731126781330</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1731126382389</updated>
-      <workItem from="1731126383421" duration="26000" />
+      <updated>1731126781330</updated>
+      <workItem from="1731126784360" duration="34000" />
     </task>
     <servers />
   </component>
