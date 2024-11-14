@@ -1,6 +1,7 @@
 package drawing;
 
-import game.TertisPanel;
+import game.*;
+import des.*;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -8,22 +9,21 @@ import java.awt.event.MouseEvent;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class DrawingTertis implements DrawingInterface{
+public class DrawingTetris implements DrawingInterface{
 
-    TertisPanel owner;
+    TetrisPanel owner;
 
     Timer tim;
 
-    boolean started = false , paused = false;
+    public boolean started = false, paused = false;
     int th = 20, tw = 10;
-    Tertis t = new Tertis(th, tw);
+    Tetris t = new Tetris(th, tw);
     Font drFont = new Font("Arial", Font.PLAIN, 30);
 
-    public DrawingTertis(TertisPanel owner) {
-        owner = owner;
+    public DrawingTetris(TetrisPanel ow) {
+        owner = ow;
     }
 
-    @Override
     public void draw(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
@@ -35,7 +35,6 @@ public class DrawingTertis implements DrawingInterface{
         int nx = drawLeft(0, g);
         nx += drawCenter(nx, g);
         drawRight(nx, g);
-
     }
 
     private int drawLeft(int sx, Graphics g) {
@@ -133,9 +132,49 @@ public class DrawingTertis implements DrawingInterface{
                 }
     }
 
-    @Override
     public void keyPressed(KeyEvent e) {
-
+        int code = e.getKeyCode();
+        if(started && !paused){
+            if(code == KeyEvent.VK_LEFT) {
+                t.moveLeft();
+                repaint();
+            }
+            else if(code == KeyEvent.VK_RIGHT) {
+                t.moveRight();
+                repaint();
+            }
+            else if(code == KeyEvent.VK_UP) {
+                t.rotate();
+                repaint();
+            }
+            else if(code == KeyEvent.VK_DOWN) {
+                //if(t.checkmove())
+                moveTetris();
+                repaint();
+            }
+            else if(code == KeyEvent.VK_ENTER ||
+                    code == KeyEvent.VK_SPACE) {
+                while(moveTetris()){}
+                //moveTetris();
+                //while(t.checkmove())
+                //moveTetris();
+                repaint();
+            }
+            else if(code == KeyEvent.VK_SHIFT) {
+                t.swap();
+                repaint();
+            }
+        }
+        if(code == KeyEvent.VK_PAUSE) {
+            if(!t.gameover()) {
+                paused = !paused;
+                repaint();
+            }
+        }
+        else if(code == KeyEvent.VK_ESCAPE) {
+            paused = true;
+            owner.openMenu();
+        }
     }
 
     public void start() {
@@ -154,20 +193,27 @@ public class DrawingTertis implements DrawingInterface{
         tim.schedule(task, 1000, 1000);
     }
 
-    @Override
+    public boolean moveTetris() {
+        if(started)
+            return t.move();
+        return false;
+    }
+
+    public void stopTetris() {
+        if(started) {
+            started = false;
+            tim.cancel();
+        }
+    }
+
     public void mouseMoved(MouseEvent e) {
-
     }
 
-    @Override
     public void mousePressed(MouseEvent e) {
-
     }
 
-    @Override
     public void repaint() {
         owner.repaint();
-
     }
 
     public Color opacityColor(Color c, int alpha) {
